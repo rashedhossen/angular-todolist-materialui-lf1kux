@@ -6,9 +6,5 @@ export interface Todo {
   isDone?: boolean;
 
 
-  // content: string;
-  // id?: string;
-  // datemodified?: Date;
-  // priority?:string;
-  // isDone?: boolean;
+  
 }
