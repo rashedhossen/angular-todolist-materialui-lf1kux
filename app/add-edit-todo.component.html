@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Add Edit Todo</h2>
+
+<mat-dialog-content [formGroup]="todoFormGroup">
+	<mat-form-field>
+		<input matInput placeholder="Content" formControlName="content" (blur)="onContentBlur($event)" >
+	<!-- [value]="input.value[0].toUpperCase() +input.value.substr(1).toLowerCase()" -->
+	</mat-form-field>
+	<mat-form-field>
+		<mat-select placeholder="Select priority" formControlName="priority">
+			<mat-option value="High">
+				High</mat-option>
+			<mat-option value="Medium">
+				Medium</mat-option>
+			<mat-option value="Low">
+				Low</mat-option>
+		</mat-select>
+	</mat-form-field>	
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<button class="mat-raised-button" (click)="onClose()">
+		Close
+	</button>
+	<button class="mat-raised-button mat-primary" [disabled]="!todoFormGroup.valid" *ngIf="!isEdit" (click)="addNewTodo()">
+		Save
+	</button>
+	<button class="mat-raised-button mat-primary" [disabled]="!todoFormGroup.valid" *ngIf="isEdit" (click)="addEditTodo()">
+		Update
+	</button>
+
+
+
+</mat-dialog-actions>
